@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Mise en forme via jQuery</title> 
+    <style> 
+        div { 
+            width: 50px; 
+            height: 50px; 
+            margin: 20px; 
+            float: left; 
+            border: 2px red solid; 
+            padding: 2px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div>1</div> 
+    <div>2</div> 
+    <div>3</div> 
+    <div>4</div> 
+    <div>5</div> 
+    <div>6</div> 
+    <div id="start">7</div> 
+    <script>
+        $(document).ready(function() {
+            // q 1
+            $('div').click(function() {
+                $('div').css('background-color', '');
+                
+                var prevDiv = $(this).prev('div');
+                
+                if (prevDiv.length > 0) {
+                    prevDiv.css('background-color', 'green');
+                } else {
+                    $(this).css('background-color', 'green');
+                    alert('Je suis la première div');
+                }
+            });
+        });
+    </script>
+</body> 
+</html>
